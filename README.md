@@ -3,7 +3,7 @@ To build and install file_crawler, after cloning the repository, run the followi
 $ autoreconf -if
 $ ./configure
 $ make
-$ make install
+$ sudo make install
 ``` 
 Note that you need to have the following packages installed:  
 autotools-dev  
