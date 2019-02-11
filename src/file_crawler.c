@@ -73,6 +73,9 @@ char *addSlash (char *str, char *buf) {
 int process_dir (char *str) {
 	char path[512];
 	(void) addSlash(str, path);
+	/* path now contains strs content, freeing associated memory */
+	free(str);
+
 	DIR *dir;
 	struct dirent *entry;
 	dir = opendir(path);
@@ -89,8 +92,10 @@ int process_dir (char *str) {
 					if (!new_dir)
 						return 0;
 
-					if (!(ll->addLast(ll, new_dir)))
+					if (!(ll->addLast(ll, new_dir))){
+						free(new_dir);
 						return 0;
+					}
 
 					/* more work added */
 					pthread_mutex_lock(&lock);
@@ -106,8 +111,10 @@ int process_dir (char *str) {
 				if (!new_dir)
 					return 0;
 
-				if (!(os->add(os, new_dir)))
+				if (!(os->add(os, new_dir))){
+					free(new_dir);
 					return 0;
+				}
 			}
 		}
 		closedir(dir);
@@ -176,7 +183,6 @@ int main (int argc, char *argv[]) {
 			nthreads = 2;
 		}
 	}
-	printf("%d\n", nthreads);
 
 	active_threads = nthreads;
 	pthread_t tids[nthreads];
@@ -187,6 +193,8 @@ int main (int argc, char *argv[]) {
 	/* start collecting directories */
 
 	char pattern[256];
+	(void) memset(pattern, 0, 256*sizeof(char));
+
 	bash_to_re(argv[1], pattern);
 	if (rex->compile(rex, pattern)) {
 
@@ -200,9 +208,11 @@ int main (int argc, char *argv[]) {
 					char *cur_dir = strdup(".");
 					if (!cur_dir)
 						goto end;
-
-					if (!(ll->addLast (ll, (void *)cur_dir)))
+					
+					if (!(ll->addLast (ll, (void *)cur_dir))){
+						free(cur_dir);
 						goto end;
+					}
 				}
 				else {
 
@@ -212,8 +222,10 @@ int main (int argc, char *argv[]) {
 						if (!dir)
 							goto end;
 
-						if (!(ll->addLast (ll, (void *)dir)))
+						if (!(ll->addLast (ll, (void *)dir))){
+							free(dir);
 							goto end;
+						}
 					}
 				}
 			}
