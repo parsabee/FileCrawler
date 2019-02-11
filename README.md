@@ -26,6 +26,8 @@ Usage: file_crawler pattern [directory] ...
 ```
 N.B. the pattern must be enclosed in '' (a pair of single quotations), otherwise bash will interpret it.
 # File Crawler
+Implementaion by Parsa Bagheri
+Design by Prof. Joe Sventek  
 
 Disks attached to laptops and desktops have become absurdly large. This generally leads users to  
 accumulate large numbers of files in a large number of directories – i.e. rather than manage the  
