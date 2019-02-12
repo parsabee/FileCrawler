@@ -6,7 +6,7 @@ $ make
 $ sudo make install
 ``` 
 Note that you need to have the following packages installed:  
-autotools-dev  
+autoconf  
 automake  
 
 If you're on mac use homebrew:
