@@ -11,12 +11,12 @@ automake
 
 If you're on mac use homebrew:
 ```
-$ brew install autotools-dev
+$ brew install autoconf
 $ brew install automake
 ```
 If on linux:
 ```
-$ sudo apt-get install autotools-dev
+$ sudo apt-get install autoconf
 $ sudo apt-get install automake
 ```
 or similar package managers.
