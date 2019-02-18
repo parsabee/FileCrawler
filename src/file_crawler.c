@@ -121,7 +121,7 @@ int process_dir (char *str) {
 		
 	}
 	else 
-		fprintf(stderr, "Unable to open `%s' directory\nNo such directory[s]\n", path);
+		fprintf(stderr, "\033[22;31mUnable to open directory: %s\n", path);
 	
 	return 1;
 }
