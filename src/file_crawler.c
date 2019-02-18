@@ -121,7 +121,7 @@ int process_dir (char *str) {
 		
 	}
 	else 
-		fprintf(stderr, "\033[22;31mUnable to open directory: %s\n", path);
+		fprintf(stderr, "\033[22;31mUnable to open directory: \033[m%s\n", path);
 	
 	return 1;
 }
@@ -143,7 +143,7 @@ void *run () {
 		(void)ll->removeFirst(ll, (void **) &path);
 
 		if (!process_dir(path)){
-			fprintf(stderr, "[MALLOC FAILURE] failed to add new path\n");
+			fprintf(stderr, "\033[22;31m[MALLOC FAILURE]: \033[mfailed to add new path\n");
 			return NULL;
 		}
 
@@ -170,7 +170,7 @@ int main (int argc, char *argv[]) {
 
 	rex = RegExp_create();
 	if (rex == NULL) {
-		fprintf(stderr, "[MALLOC FAILURE] failed to create regex object\n");
+		fprintf(stderr, "\033[22;31m[MALLOC FAILURE]: \033[mfailed to create regex object\n");
 		exit(0);
 	}
 
@@ -248,7 +248,7 @@ int main (int argc, char *argv[]) {
 	/*join threads*/
 	for(i = 0; i < nthreads; i++)
 		if(pthread_join(tids[i], NULL) != 0)
-			fprintf(stderr, "Failed to join threads\n");
+			fprintf(stderr, "\033[22;31mFailed to join threads\n");
 	
 
 	const TSIterator *it = os->itCreate(os);
