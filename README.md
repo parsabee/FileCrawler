@@ -38,16 +38,16 @@ systems generally do not continuously index file names, instead providing one or
 applications for searching the file system for files whose names match the desired patterns.  
 Linux, for example, provides the find application for general traversal of the file system – see the  
 man page for more details.  
-The syntax for the find application is extremely difficult to master; it is also single threaded. The aim of this  
-tool is to be a high-performance application that will recursively crawl  
+The syntax for the find application is extremely difficult to master; it is also single threaded. The aim of File Crawler  
+is to be a high-performance, multi-threaded application that will recursively crawl  
 through a set of specified directories, looking for filenames that match a specified bash pattern.  
 For very large software systems, a singly-threaded application to crawl the directories may take a  
 very long time.  
 # Specifications
 
 This program understands the following arguments:  
-__pattern__     indicates a bash pattern that filenames must match  
-__directory__     directory to be recursively crawled for matching filenames  
+__pattern__:     indicates a bash pattern that filenames must match  
+__directory__:     directory to be recursively crawled for matching filenames  
 The usage string is:     file_crawler pattern [directory] …  
 If a directory is not specified, the application searches in the current directory, “.”.  
 The application uses the following environment variable when it runs:
