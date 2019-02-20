@@ -90,11 +90,14 @@ int process_dir (char *str) {
 					(void) strcpy(new_path, path);
 					(void) strcat(new_path, entry->d_name);
 					char *new_dir = strdup (new_path);
-					if (!new_dir)
+					if (!new_dir) {
+						closedir(dir);
 						return 0;
+					}
 
 					if (!(ll->addLast(ll, new_dir))){
 						free(new_dir);
+						closedir(dir);
 						return 0;
 					}
 
@@ -109,11 +112,14 @@ int process_dir (char *str) {
 				(void) strcpy(new_path, path);
 				(void) strcat(new_path, entry->d_name);
 				char *new_dir = strdup (new_path);
-				if (!new_dir)
+				if (!new_dir) {
+					closedir(dir);
 					return 0;
+				}
 
 				if (!(os->add(os, new_dir))){
 					free(new_dir);
+					closedir(dir);
 					return 0;
 				}
 			}
