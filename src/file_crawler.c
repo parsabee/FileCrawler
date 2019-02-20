@@ -116,12 +116,7 @@ int process_dir (char *str) {
 					closedir(dir);
 					return 0;
 				}
-
-				if (!(os->add(os, new_dir))){
-					free(new_dir);
-					closedir(dir);
-					return 0;
-				}
+				(void) os->add(os, new_dir);
 			}
 		}
 		closedir(dir);
