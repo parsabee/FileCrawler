@@ -17,7 +17,7 @@
 #include "tsorderedset.h"
 #include "tsiterator.h"
 
-#define USAGE "file_crawler pattern [directory] ...\nN.B. pattern must be enclosed in \'\'"
+#define USAGE "USAGE: file_crawler pattern [directory] ...\nN.B. pattern must be enclosed in \'\'"
 
 const TSLinkedList *ll = NULL;
 const TSOrderedSet *os = NULL;
