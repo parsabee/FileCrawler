@@ -229,26 +229,35 @@ int main (int argc, char *argv[]) {
 					}
 				}
 			}
-			else 
+			else {
+				fprintf(stderr, "\033[22;31m[MALLOC FAILURE]: \033[mfailed to create set object\n");
 				goto end;
+			}
 		}
-		else 
+		else {
+			fprintf(stderr, "\033[22;31m[MALLOC FAILURE]: \033[mfailed to create linkedlist object\n");
 			goto end;
+		}
 	}
-	else 
+	else {
+		fprintf(stderr, "\033[22;31m[ERROR]: \033[minvalid pattern\n");
 		goto end;
-
+	}
 	/* finished collecting directories */
 
 	int i;
 	for (i = 0; i < nthreads; i++)
-		if (pthread_create(&tids[i], NULL, run, NULL) != 0)
+		if (pthread_create(&tids[i], NULL, run, NULL) != 0){
+			fprintf(stderr, "\033[22;31m[ERROR]: \033[mfailed to create threads\n");
 			goto end;
+		}
 
 	/*join threads*/
 	for(i = 0; i < nthreads; i++)
-		if(pthread_join(tids[i], NULL) != 0)
-			fprintf(stderr, "\033[22;31mFailed to join threads\n");
+		if(pthread_join(tids[i], NULL) != 0){
+			fprintf(stderr, "\033[22;31m[ERROR]: \033[mfailed to join threads\n");
+			goto end;
+		}
 	
 
 	const TSIterator *it = os->itCreate(os);
