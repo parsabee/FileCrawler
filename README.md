@@ -36,13 +36,14 @@ Some operating systems have addressed this by continuously indexing the names of
 file system, and then providing the ability to query the index – e.g. Google desktop. Server  
 systems generally do not continuously index file names, instead providing one or more  
 applications for searching the file system for files whose names match the desired patterns.  
-Linux, for example, provides the find application for general traversal of the file system – see the  
+Linux, for example, provides the *find* application for general traversal of the file system – see the  
 man page for more details.  
-The syntax for the find application is extremely difficult to master; it is also single threaded. The aim of File Crawler  
-is to be a high-performance, multi-threaded application that will recursively crawl  
-through a set of specified directories, looking for filenames that match a specified bash pattern.  
-For very large software systems, a singly-threaded application to crawl the directories may take a  
-very long time.  
+The syntax for the find application is extremely difficult to master; it is also single threaded. For  
+very large software systems, a singly-threaded application to crawl the directories may take a very   
+long time.  
+The aim of *file_crawler* is to be a high-performance, multi-threaded application, with easier syntax  
+than *find*, that will recursively crawl through a set of specified directories, looking for filenames   
+that match a specified bash pattern.    
 # Specifications
 
 This program understands the following arguments:  
