@@ -1,4 +1,4 @@
-To build and install file_crawler, after cloning the repository, run the following commands in shell:  
+To build and install file_crawler, after cloning the repository, cd into repositories directory and run the following commands:  
 ```
 $ autoreconf -if
 $ ./configure
