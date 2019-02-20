@@ -23,6 +23,7 @@ const TSLinkedList *ll = NULL;
 const TSOrderedSet *os = NULL;
 const RegExp *rex = NULL;
 int active_threads = 0;
+int status = 1;
 
 pthread_mutex_t lock;
 pthread_cond_t cond;
@@ -144,6 +145,9 @@ void *run () {
 
 		if (!process_dir(path)){
 			fprintf(stderr, "\033[22;31m[MALLOC FAILURE]: \033[mfailed to add new path\n");
+			pthread_mutex_lock(&lock);
+			status = 0;
+			pthread_mutex_unlock(&lock);
 			return NULL;
 		}
 
@@ -259,6 +263,8 @@ int main (int argc, char *argv[]) {
 			goto end;
 		}
 	
+	if (!status) /* malloc failure when threads were running */
+		goto end;
 
 	const TSIterator *it = os->itCreate(os);
 	if (it != NULL) {
