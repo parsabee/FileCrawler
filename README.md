@@ -64,4 +64,4 @@ The LICENSE and Copyright information can be found in ./FileCrawler/src/LICENSE
 
 files: iterator.c iterator.h linkedlist.c linkedlist.h orderedset.c orderedset.h  
        tsiterator.c tsiterator.h tslinkedlist.c tslinkedlist.h tsorderedset.c tsorderedset.h  
-The link to the GitHub repository: https://github.com/jsventek/ADTsv2/{files}  
+The link to the GitHub repository: https://github.com/jsventek/ADTsv2/ 
