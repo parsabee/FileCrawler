@@ -1,8 +1,8 @@
 /*
- * created by Parsa Bagheri
+ * Created by Parsa Bagheri
  * This piece of software uses open source libraries,
- * I am grateful and appreciate the developers of theses libraries, and their contribution to open source
- * the link to the Github repository of these libraries is provided below
+ * I am grateful and appreciate the developers of theses libraries, and their contribution to open source.
+ * The link to the Github repository of these libraries is provided below
  * The LICENSE and Copyright information can be found in ./FileCrawler/src/LICENSE
  *
  * files: 	iterator.c iterator.h linkedlist.c linkedlist.h orderedset.c orderedset.h
