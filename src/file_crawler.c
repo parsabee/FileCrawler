@@ -1,10 +1,13 @@
 /*
  * created by Parsa Bagheri
- * this software uses Open Source material,
- * I am grateful to the developers of noted material for their contirbutions to Open Source
- * 
+ * This piece of software uses open source libraries,
+ * I am grateful and appreciate the developers of theses libraries, and their contribution to open source
+ * the link to the Github repository of these libraries is provided below
  * The LICENSE and Copyright information can be found in ./FileCrawler/src/LICENSE
- * The link to the GitHub repository: https://github.com/jsventek/ADTsv2
+ *
+ * files: 	iterator.c iterator.h linkedlist.c linkedlist.h orderedset.c orderedset.h
+ *		tsiterator.c tsiterator.h tslinkedlist.c tslinkedlist.h tsorderedset.c tsorderedset.h
+ * The link to the GitHub repository: https://github.com/jsventek/ADTsv2/{files}
  */
 
 #include <string.h>
